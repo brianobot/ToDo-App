@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODOs List</title>
+</head>
+<body>
+    <h1>TODO List 🕒</h1>
+
+    <h3>
+        Tasks ({{ todos.count }})
+    </h3>
+    <ul>
+        {% for todo in todos %}
+            <li>{{ todo.title }} </li>
+        {% endfor %}
+    </ul>
+
+    <h3>
+        Analytics
+    </h3>
+    <ul>
+        <li>
+            {{ analytic.completed_tasks.count }}
+        </li>
+        <li>
+            {{ analytic.active_tasks.count }}
+        </li>
+        <li>
+            {{ analytic.inactive_tasks.count }}
+        </li>
+    </ul>
+
+    <h3>
+        Tags ({{ tags.count }})
+    </h3>
+    <ul>
+        {% for tag in tags %}
+            <li> {{ tag.title }}</li>
+        {% endfor %}
+    </ul>
+
+
+</body>
+</html>
