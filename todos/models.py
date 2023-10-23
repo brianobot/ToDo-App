@@ -16,9 +16,13 @@ class TODO(models.Model):
         ("mid_priority", "Mid Priority"),
         ("low_priority", "Low Priority"),
     )
-    level = models.CharField(max_length=20, choices=LEVELS, default=LEVELS[1][0], blank=True)
+    level = models.CharField(
+        max_length=20, choices=LEVELS, default=LEVELS[1][0], blank=True
+    )
     title = models.CharField(max_length=255, help_text="Title of the TODO task")
-    due_date = models.DateTimeField(blank=True, null=True, help_text="DateTime to Complete Task before")
+    due_date = models.DateTimeField(
+        blank=True, null=True, help_text="DateTime to Complete Task before"
+    )
     description = models.CharField(max_length=1000, blank=True, null=True)
     tags = models.ManyToManyField("todos.Tag", blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -35,6 +39,6 @@ class TODO(models.Model):
                 return "Active" if now <= self.due_date else "Expired"
             else:
                 return "Inconclusive"
-            
+
     def __str__(self) -> str:
         return f"TODO: {self.title}"
