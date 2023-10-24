@@ -42,5 +42,42 @@
     </ul>
 
 
+    <form method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div class="fieldWrapper">
+            {{ form.title.errors }}
+            <label for="{{ form.title.id_for_label }}">Task Title:</label>
+            {{ form.title }}
+        </div>
+        <div class="fieldWrapper">
+            {{ form.description.errors }}
+            <label for="{{ form.description.id_for_label }}">Description:</label>
+            {{ form.description }}
+        </div>
+        <div class="fieldWrapper">
+            {{ form.due_date.errors }}
+            <label for="{{ form.due_date.id_for_label }}">Set Due Date:</label>
+            {{ form.due_date }}
+        </div>
+        <div class="fieldWrapper">
+            {{ form.tags.errors }}
+            <label for="{{ form.tags.id_for_label }}">Tags:</label>
+            {{ form.tags }}
+        </div>
+        <div class="fieldWrapper">
+            {{ form.level.errors }}
+            <label for="{{ form.level.id_for_label }}">Set level:</label>
+            {{ form.level }}
+        </div>
+        <div class="fieldWrapper">
+            {{ form.completed.errors }}
+            <label for="{{ form.completed.id_for_label }}">Completed ?</label>
+            {{ form.completed }}
+        </div>
+        <button type="submit">Add Todo Task</button>
+    </form>
+
+
 </body>
 </html>

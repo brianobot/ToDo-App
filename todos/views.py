@@ -1,4 +1,5 @@
 from django.http import HttpResponseRedirect
+from django.shortcuts import redirect
 from django.shortcuts import render
 from django.views import View
 
@@ -30,6 +31,7 @@ class TODOView(View):
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
         if form.is_valid():
-            return HttpResponseRedirect("/success/")
+            form.save()
+            return redirect("todos:todo-list")
 
         return render(request, self.template_name, {"form": form})

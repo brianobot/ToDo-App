@@ -9,6 +9,7 @@ class TODOForm(forms.ModelForm):
         fields = [
             "title",
             "description",
+            "due_date",
             "level",
             "tags",
             "completed",
